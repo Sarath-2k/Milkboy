@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           title: Text("MILKBOY"),
           actions: <Widget>[
-            RaisedButton.icon(
+            FlatButton.icon(
                 onPressed: () {
                   MyNavigator.goToAdd(context);
                 },
@@ -28,7 +28,7 @@ class _HomeState extends State<Home> {
           children: [
             RaisedButton(
               onPressed: () {
-                MyNavigator.goToBuy(context);
+                MyNavigator.goToRecieve(context);
               },
               child: Text("Recieve"),
             ),

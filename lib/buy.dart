@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:milk/main.dart';
+import 'package:milk/services/navigator.dart';
 
-String sellerid = "";
 class BuyerPage extends StatefulWidget {
   @override
   _BuyerPageState createState() => _BuyerPageState();
@@ -35,6 +36,7 @@ class _BuyerPageState extends State<BuyerPage> {
               setState(() {
                 sellerid = myController.text;
                 print(sellerid);
+              MyNavigator.goToBuy2(context);
               });
             },
             child: Text("Go"),

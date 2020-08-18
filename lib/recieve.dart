@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:milk/main.dart';
+import 'package:milk/services/navigator.dart';
 
-String recieverid = "";
 
 class RecieverPage extends StatefulWidget {
   @override
@@ -37,6 +38,7 @@ class _RecieverPageState extends State<RecieverPage> {
                 recieverid = myController.text;
                 print(recieverid);
               });
+              MyNavigator.goToRecieve2(context);
             },
             child: Text("Go"),
           ),

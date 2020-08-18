@@ -9,10 +9,16 @@ class MyNavigator {
     Navigator.pushNamed(context, "/sell");
   }
   
-  static void goToBuy(BuildContext context) {
+  static void goToRecieve(BuildContext context) {
     Navigator.pushNamed(context, "/recieve");
   }
   static void goToAdd(BuildContext context) {
     Navigator.pushNamed(context, "/add");
+  }
+  static void goToRecieve2(BuildContext context) {
+    Navigator.pushNamed(context, "/buy2");
+  }
+  static void goToBuy2(BuildContext context) {
+    Navigator.pushNamed(context, "/recieve2");
   }
 }
