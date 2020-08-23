@@ -1,6 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:milk/services/navigator.dart';
 
+String buyername = " ";
+String buyerphone = " ";
+String buyerpin = " ";
+int buyercredit ;
+
+String sellername = " ";
+String sellerphone = " ";
+String sellerpin = " ";
+int sellercredit;
+
+int quantity = 0;
+int cost = 0;
+int totalcost = quantity * cost;
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();

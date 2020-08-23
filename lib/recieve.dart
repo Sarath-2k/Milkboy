@@ -1,7 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:milk/main.dart';
 import 'package:milk/services/navigator.dart';
 
+import 'home.dart';
+
+final firebaseref = Firestore.instance;
 
 class RecieverPage extends StatefulWidget {
   @override
@@ -10,6 +14,19 @@ class RecieverPage extends StatefulWidget {
 
 class _RecieverPageState extends State<RecieverPage> {
   final myController = TextEditingController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    myController.addListener(setter);
+  }
+
+  void setter() {
+    setState(() {
+      sellerid = myController.text;
+    });
+  }
 
   @override
   void dispose() {
@@ -34,11 +51,19 @@ class _RecieverPageState extends State<RecieverPage> {
           ),
           RaisedButton(
             onPressed: () {
-              setState(() {
-                recieverid = myController.text;
-                print(recieverid);
+              firebaseref
+                  .collection("Sellers")
+                  .document(sellerid)
+                  .get()
+                  .then((value) {
+                setState(() {
+                  sellername = value.data["Name"];
+                  sellerphone = value.data["Phone Number"];
+                  sellerpin = value.data["PIN Code"];
+                  sellercredit = value.data["Credit"];
+                });
               });
-              MyNavigator.goToRecieve2(context);
+              MyNavigator.goToBuy2(context);
             },
             child: Text("Go"),
           ),
