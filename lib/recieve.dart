@@ -63,7 +63,7 @@ class _RecieverPageState extends State<RecieverPage> {
                   sellercredit = value.data["Credit"];
                 });
               });
-              MyNavigator.goToBuy2(context);
+              MyNavigator.goToRecieve2(context);
             },
             child: Text("Go"),
           ),

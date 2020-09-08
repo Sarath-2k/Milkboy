@@ -24,15 +24,15 @@ class _BuyConfState extends State<BuyConf> {
 
   void qtysetter() {
     setState(() {
-      quantity = qty.text as int;
-      totalcost = quantity * cost;
+      quantity = int.parse(qty.text);
+      totalcost = quantity * milkprice;
     });
   }
 
   void pricesetter() {
     setState(() {
-      cost = price.text as int;
-      totalcost = quantity * cost;
+      quantity = int.parse(qty.text);
+      totalcost = quantity * milkprice;
     });
   }
 
@@ -63,15 +63,7 @@ class _BuyConfState extends State<BuyConf> {
               FilteringTextInputFormatter.digitsOnly
             ], // Only numbers can be entered
           ),
-          TextField(
-            controller: price,
-            decoration: new InputDecoration(labelText: "Enter price"),
-            keyboardType: TextInputType.number,
-            inputFormatters: <TextInputFormatter>[
-              FilteringTextInputFormatter.digitsOnly
-            ], // Only numbers can be entered
-          ),
-          Text(totalcost.toString()),
+          Text("$totalcost"),
           RaisedButton(
               onPressed: () {
                 firebaseref
@@ -83,7 +75,8 @@ class _BuyConfState extends State<BuyConf> {
           RaisedButton(
               onPressed: () {}, child: Text("Recieved Payment of $totalcost")),
           RaisedButton(
-              onPressed: () {}, child: Text("Recieved Payment of $totalcost+$buyercredit")),
+              onPressed: () {},
+              child: Text("Give total Payment")),
         ],
       )),
     );

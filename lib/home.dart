@@ -9,6 +9,7 @@ int buyercredit ;
 String sellername = " ";
 String sellerphone = " ";
 String sellerpin = " ";
+int milkprice;
 int sellercredit;
 
 int quantity = 0;
@@ -20,7 +21,31 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
+
+
 class _HomeState extends State<Home> {
+    final myController = TextEditingController();
+
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    myController.addListener(setter);
+  }
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    myController.dispose();
+    super.dispose();
+  }
+
+  void setter(){
+    setState(() {
+      milkprice = int.parse(myController.text);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +76,11 @@ class _HomeState extends State<Home> {
                 MyNavigator.goToSell(context);
               },
               child: Text("Sell"),
-            )
+            ),
+            TextField(
+            controller: myController,
+            decoration: new InputDecoration.collapsed(hintText: "Today's Milk Price"),
+          )
           ],
         )));
   }

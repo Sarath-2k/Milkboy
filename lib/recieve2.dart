@@ -25,14 +25,14 @@ class _RecieveConfState extends State<RecieveConf> {
 
   void qtysetter() {
     setState(() {
-      quantity = qty.text as int;
+      quantity = int.parse(qty.text);
       totalcost = quantity * cost;
     });
   }
 
   void pricesetter() {
     setState(() {
-      cost = price.text as int;
+      cost = int.parse(price.text);
       totalcost = quantity * cost;
     });
   }
@@ -72,7 +72,7 @@ class _RecieveConfState extends State<RecieveConf> {
               FilteringTextInputFormatter.digitsOnly
             ], // Only numbers can be entered
           ),
-          Text(totalcost.toString()),
+          Text("$totalcost"),
           RaisedButton(
               onPressed: () {
                 firebaseref
@@ -90,7 +90,7 @@ class _RecieveConfState extends State<RecieveConf> {
                     .document(recieverid)
                     .updateData({"Credit": 0});
               },
-              child: Text("Give Payment of $totalcost+$buyercredit")),
+              child: Text("Give total Payment")),
         ],
       )),
     );
