@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/lullaby/Desktop/milk/build/google_api_availability/intermediates/res/merged/release/color/common_google_signin_btn_text_dark.xml",
+        "source": "/home/lullaby/.gradle/caches/transforms-2/files-2.1/619abba053f621d4e7f075aa1cc9b056/play-services-base-17.2.1/res/color/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/home/lullaby/Desktop/milk/build/google_api_availability/intermediates/res/merged/release/color/common_google_signin_btn_text_light.xml",
+        "source": "/home/lullaby/.gradle/caches/transforms-2/files-2.1/619abba053f621d4e7f075aa1cc9b056/play-services-base-17.2.1/res/color/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/home/lullaby/Desktop/milk/build/google_api_availability/intermediates/res/merged/release/color/common_google_signin_btn_tint.xml",
+        "source": "/home/lullaby/.gradle/caches/transforms-2/files-2.1/619abba053f621d4e7f075aa1cc9b056/play-services-base-17.2.1/res/color/common_google_signin_btn_tint.xml"
+    }
+]

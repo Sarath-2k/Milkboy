@@ -4,29 +4,27 @@ import 'package:milk/services/navigator.dart';
 String buyername = " ";
 String buyerphone = " ";
 String buyerpin = " ";
-int buyercredit ;
+double buyercredit;
 
 String sellername = " ";
 String sellerphone = " ";
 String sellerpin = " ";
-int milkprice;
-int sellercredit;
+double milkprice;
+double sellercredit;
 
-int quantity = 0;
-int cost = 0;
-int totalcost = quantity * cost;
+double quantity = 0;
+double cost = 0;
+double totalcost = 0;
 
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
-
-
 class _HomeState extends State<Home> {
-    final myController = TextEditingController();
+  final myController = TextEditingController();
 
-@override
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
@@ -40,9 +38,9 @@ class _HomeState extends State<Home> {
     super.dispose();
   }
 
-  void setter(){
+  void setter() {
     setState(() {
-      milkprice = int.parse(myController.text);
+      milkprice = double.parse(myController.text);
     });
   }
 
@@ -78,9 +76,14 @@ class _HomeState extends State<Home> {
               child: Text("Sell"),
             ),
             TextField(
-            controller: myController,
-            decoration: new InputDecoration.collapsed(hintText: "Today's Milk Price"),
-          )
+              controller: myController,
+              decoration:
+                  new InputDecoration.collapsed(hintText: "Today's Milk Price"),
+              keyboardType: TextInputType.numberWithOptions(
+                decimal: true,
+                signed: false,
+              ),
+            )
           ],
         )));
   }

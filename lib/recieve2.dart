@@ -25,14 +25,14 @@ class _RecieveConfState extends State<RecieveConf> {
 
   void qtysetter() {
     setState(() {
-      quantity = int.parse(qty.text);
+      quantity = double.parse(qty.text);
       totalcost = quantity * cost;
     });
   }
 
   void pricesetter() {
     setState(() {
-      cost = int.parse(price.text);
+      cost = double.parse(price.text);
       totalcost = quantity * cost;
     });
   }
@@ -59,7 +59,10 @@ class _RecieveConfState extends State<RecieveConf> {
           TextField(
             controller: qty,
             decoration: new InputDecoration(labelText: "Enter quantity"),
-            keyboardType: TextInputType.number,
+            keyboardType: TextInputType.numberWithOptions(
+              decimal: true,
+              signed: false,
+            ),
             inputFormatters: <TextInputFormatter>[
               FilteringTextInputFormatter.digitsOnly
             ], // Only numbers can be entered
@@ -67,7 +70,10 @@ class _RecieveConfState extends State<RecieveConf> {
           TextField(
             controller: price,
             decoration: new InputDecoration(labelText: "Enter price"),
-            keyboardType: TextInputType.number,
+            keyboardType: TextInputType.numberWithOptions(
+              decimal: true,
+              signed: false,
+            ),
             inputFormatters: <TextInputFormatter>[
               FilteringTextInputFormatter.digitsOnly
             ], // Only numbers can be entered

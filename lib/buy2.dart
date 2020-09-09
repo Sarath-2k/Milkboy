@@ -24,14 +24,14 @@ class _BuyConfState extends State<BuyConf> {
 
   void qtysetter() {
     setState(() {
-      quantity = int.parse(qty.text);
+      quantity = double.parse(qty.text);
       totalcost = quantity * milkprice;
     });
   }
 
   void pricesetter() {
     setState(() {
-      quantity = int.parse(qty.text);
+      quantity = double.parse(qty.text);
       totalcost = quantity * milkprice;
     });
   }
@@ -58,7 +58,10 @@ class _BuyConfState extends State<BuyConf> {
           TextField(
             controller: qty,
             decoration: new InputDecoration(labelText: "Enter quantity"),
-            keyboardType: TextInputType.number,
+            keyboardType: TextInputType.numberWithOptions(
+              decimal: true,
+              signed: false,
+            ),
             inputFormatters: <TextInputFormatter>[
               FilteringTextInputFormatter.digitsOnly
             ], // Only numbers can be entered
@@ -74,9 +77,7 @@ class _BuyConfState extends State<BuyConf> {
               child: Text("Credit")),
           RaisedButton(
               onPressed: () {}, child: Text("Recieved Payment of $totalcost")),
-          RaisedButton(
-              onPressed: () {},
-              child: Text("Give total Payment")),
+          RaisedButton(onPressed: () {}, child: Text("Give total Payment")),
         ],
       )),
     );
